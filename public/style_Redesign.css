@@ -1,0 +1,312 @@
+html, body { 
+    font-family: 'Rubik', sans-serif;
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    overflow: auto;
+    background-color: white;
+}
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Rubik', sans-serif;
+}
+
+/*NAV*/
+
+nav{
+    background-color: #fedfe7;
+    height: 100px;
+}
+.nav-item a{
+    margin-right: 20px;
+    color: #C92A53!important;
+    transition: 0.3s;
+}
+ul li a:hover{
+    color: #f088a6!important;
+    transition: 0.3s;
+}
+.background-image{
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url("omage1.png");
+    background-size:100% 100%;
+    /*border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;*/
+    height: 600px;
+}
+/*-----------CONTENT-----------*/
+.container{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.title{
+    color: #C92A53;
+    padding-left: 60px;
+}
+.subtitle{
+    color: #C92A53;
+}
+.description{
+    display: flex;
+    align-items: center;
+}
+.description-text{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+.image{
+    margin-bottom: 30px;
+    text-align: center;
+    width: fit-content;
+}
+.image img{
+    border-radius: 20px;
+    width: 80%;
+}
+.smimage{
+    margin-bottom: 30px;
+    text-align: center;
+    width: fit-content;
+}
+.smimage img{
+    border-radius: 20px;
+    width: 80%;
+}
+.flowimage{
+    margin-bottom: 30px;
+    text-align: center;
+    width: fit-content;
+}
+.flowimage img{
+    border-radius: 20px;
+    width: 60%;
+}
+.imagegraph{
+    margin-bottom: 30px;
+    text-align: center;
+    width: fit-content;
+}
+.imagegraph img{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e6154a;
+    border-radius: 20px;
+    width: 100%;
+}
+.info-list ul li{
+    background-color: transparent;
+    border: none;
+}
+.info-list li{
+    background-color: transparent;
+    border: none;
+}
+.buttons{
+    padding-top: 50px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+.bcolor{
+    background-color:#C92A53!important;
+    border-color: #C92A53!important;
+    transition: 1s;
+    margin-bottom: 10px;
+}
+.bcolor:hover{
+    background-color:#e6154a!important;
+    border-color: #e6154a!important;
+    transition: 0.1s;
+    transform: scale(1.02) perspective(1px)
+}
+button .navbar-toggler{
+    background-color: transparent!important;   
+}
+/*popup*/
+
+.overlay{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .popup{
+    width: 60%;
+    background: white;
+    box-shadow: 0px 0px 5px 0px rgba(67, 2, 0, 0.9);
+    border-radius: 40px;
+    padding: 20px;
+    white-space: nowrap;
+  }
+  .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  .popup img{
+    margin-top: -35px;
+    vertical-align: middle;
+    width: 100%
+  }
+@media (max-width:924px){
+    nav{
+        height: auto;
+    }
+    .popup{
+        width:95%!important;
+        text-align: center!important;
+    }
+    .popup img{
+        border-radius: 10px;
+    }
+    .flowimage img{
+        width: 90%;
+    }
+    .container{
+        padding: 0px;
+    }
+    .background-image{
+        height: 60%;
+    }
+}
+
+/*CIRCLE*/
+
+.box{
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.box .percent{
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+.box .percent svg{
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+.box .percent svg circle{
+    width: 150px;
+    height: 150px;
+    fill: none;
+    stroke-width:10;
+    stroke: black;
+    transform: translate(5px,5px);
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+}
+.box .percent svg circle:nth-child(1){
+    stroke-dashoffset: 0;
+    stroke: #F3F3F3;
+}
+.box .percent svg circle:nth-child(2) {
+    stroke: #e6154a;
+    opacity: 10;
+    animation: animate-circle 3s cubic-bezier(0,0.23,1,.1); 
+}
+.box .percent .text{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+.box .percent .number{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+.box .percent .number h2{
+    font-size: 48px;
+}
+.box .percent .number h2 span{
+    font-size: 24px;
+}
+.box .text{
+    padding: 10px 0 0;
+    color: black;
+    font-weight: 700;
+    letter-spacing: 1;
+}
+.countdown {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.countdown span {
+    color:white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 3rem;
+    margin-left: 0.8rem;
+}
+.countdown span:first-of-type {
+    margin-left: 0;
+}
+
+.countdown-circles {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.countdown-circles span {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.countdown-circles span:first-of-type {
+    margin-left: 0;
+}
+@keyframes animate-circle {
+    0% {
+        opacity: 0;
+        stroke-dashoffset: 440;
+    }
+    30% {
+        opacity: 0.30;
+        stroke-dashoffset: 200;
+    }
+    80% {
+        opacity: 0.80;
+        stroke-dashoffset: 100;
+    }
+    90% {
+        opacity: 0.80;
+        stroke-dashoffset: 0;
+    }
+    100% {
+        opacity: 10;
+    }
+}

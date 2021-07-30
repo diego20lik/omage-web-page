@@ -1,0 +1,14 @@
+$(document).ready(function(){
+    $('.signIn').click(function(){
+        $('.signIn').addClass("active-section")
+        $('.logIn').removeClass("active-section")
+        $('#signIn').show()
+        $('#login').hide()
+    })
+    $('.logIn').click(function(){
+        $('.logIn').addClass("active-section")
+        $('.signIn').removeClass("active-section")
+        $('#login').show()
+        $('#signIn').hide()
+    })
+})

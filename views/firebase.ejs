@@ -1,0 +1,83 @@
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js" defer ></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyAs4ffkea-xDuRuvKCOL9yU4IbnfBdSEWs",
+    authDomain: "omage-accounts.firebaseapp.com",
+    databaseURL: "https://omage-accounts-default-rtdb.firebaseio.com",
+    projectId: "omage-accounts",
+    storageBucket: "omage-accounts.appspot.com",
+    messagingSenderId: "435202064835",
+    appId: "1:435202064835:web:87d55873701c1ab61b3d76",
+    measurementId: "G-KJJZWZQYVB"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+
+    //Login
+    document.getElementById("logIn").addEventListener("submit", (event) => {
+        event.preventDefault();
+        $(".loading").show()
+        const email= event.target.emaillog.value;
+        const password = event.target.passwordlog.value;
+        firebase.auth().signInWithEmailAndPassword(email, password).then(({ user }) => {
+            return user.getIdToken().then((idToken) => {
+                return fetch("/sessionLogin", {
+                    method: "POST",
+                    headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+                    },
+                    body: JSON.stringify({ idToken }),
+                });
+            });
+        }).then(() => {
+            return firebase.auth().signOut();
+        }).then(() => {
+            window.location.assign("/buy-token");
+        }).catch(err=>{
+            $(".loading").hide()
+            $(".error-log").html(`<small>${err.message}</small>`);
+        })
+        return false;
+    })
+
+    //SignUp
+
+    document.getElementById("signup").addEventListener("submit", (event) => {
+        $(".loading").show()
+        event.preventDefault();
+        if($('#password').val()==$('#confirmPassword').val()){
+            const email = event.target.email.value;
+            const password = event.target.password.value;
+
+            firebase.auth().createUserWithEmailAndPassword(email, password).then(({ user }) => {
+                return user.getIdToken().then((idToken) => {
+                    return fetch("/sessionLogin", {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                        "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+                    },
+                    body: JSON.stringify({ idToken }),
+                    });
+                });
+            }).then(() => {
+                return firebase.auth().signOut();
+            }).then(() => {
+                window.location.assign("/buy-token");
+            }).catch(err=>{
+                $(".loading").hide()
+                $(".error-sign").html(`<small>${err.message}</small>`)
+            })
+            return false;
+        }else{
+            $(".loading").hide()
+            $(".error-sign").html("<small>Passwords do not match</small>")
+        }
+    });
+</script>

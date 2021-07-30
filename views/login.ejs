@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Omage Project</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
+        <link rel="stylesheet" href="style_login.css">
+    </head>
+    <body>
+        <div class="container access-container">
+            <div class="white_box row">
+                <div class="loading"></div>
+                <div class="col-6">
+                    <a class="logIn"><h2 style="text-align: center;">Log In</h2></a>
+                </div>
+                <div class="col-6">
+                    <a class="signIn active-section"><h2 style="text-align: center;">Sign In</h2></a>
+                </div>
+                <div class="col-12"><hr></div>
+                <div class="col-12" id="signIn">
+                    <div class="error-sign"></div>
+                    <h4 style="text-align: center;">Sign In Form</h4>
+                    <form id="signup">
+                        <div class="row" id="form">
+                            <div class="form-group col-12">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group col-12">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" minlength="6" required>
+                            </div>
+                            <div class="form-group col-12">
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" minlength="6" required>
+                            </div>
+                            <div class="g-recaptcha" style="margin: 0 auto 20px;" data-sitekey="6LexyRUaAAAAAFaIyu92HXcnlXQYc3PgWq1hC0Wj"></div>
+                            <div class="form-group col-12">
+                                <button type="submit" class="btn btn-primary btn-lg" id="btn-wp">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="col-12" id="login" style="display: none;">
+                        <div class="error-log"></div>
+                        <h4 style="text-align: center;">Log In Form</h4>
+                        <form id="logIn">
+                            <div class="row" id="form">
+                                <div class="form-group col-12">
+                                    <input type="email" class="form-control" id="emaillog" name="emaillog" placeholder="Email" required>
+                                </div>
+                                <div class="form-group col-12">
+                                    <input type="password" class="form-control" id="passwordlog" name="passwordlog" placeholder="Password" minlength="6" required>
+                                </div>
+                                <div class="g-recaptcha" style="margin: 0 auto 20px;" data-sitekey="6LexyRUaAAAAAFaIyu92HXcnlXQYc3PgWq1hC0Wj"></div>
+                                <div class="form-group col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg" id="btn-wp">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <%- include('firebase.ejs') %>
+    <script type="text/javascript" src="toggle.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</html>
+    
+            
